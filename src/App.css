@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* .tiptap-toolbar {
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+  align-items: center;
+}
+
+.toolbar-btn {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+.toolbar-btn.active {
+  background: #111;
+  color: #fff;
+}
+
+.toolbar-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.editor-shell {
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.editor-wrapper {
+  padding: 18px;
+  min-height: 220px;
+} */
+
+/* .is-active {
+  color: blue;
+} */
