@@ -56,7 +56,7 @@ const Tiptap = () => {
 
     editorProps: {
       attributes: {
-        class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none',
+        class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none text-white font-sans',
         
         // class: 'prose prose-sm sm:prose-base lg:prose-headings:h2 xl:prose-headings:h3 m-5 focus:outline-none',
       },
@@ -71,11 +71,11 @@ const Tiptap = () => {
   return (
     <div className='h-screen'>
       <EditorContext.Provider value={providerValue}>
-      <div>
+      {/* <div> */}
         {/* <Toolbar></Toolbar> */}
-      </div>
-        <div className='flex justify-center mt-5 h-full bg-neutral-950'>
-          <div className='w-2xl h-auto'>
+      {/* </div> */}
+        <div className='flex justify-center mt-5 h-full '>
+          <div className='w-2xl h-auto '>
             <EditorContent editor={editor} />
           </div>
         </div>
