@@ -54,8 +54,8 @@ export const BlockTypeDropdown = () => {
                 setOpen(open => !open)
             }}
             className="flex items-center ">
-                <span className="mx-2">{getCurrentBlockLabel({editorState})}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-2 mx-2  ">
+                <span className="mx-1">{getCurrentBlockLabel({editorState})}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-2 mx-1  ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </button>

@@ -1,7 +1,7 @@
 import { Editor, useCurrentEditor, useEditorState } from "@tiptap/react"
 import React from "react";
 
-type ToolbarButtonType = "bold" | "italic" | "underline" | "strike" | "code"
+type ToolbarButtonType = "bold" | "italic" | "underline" | "strike" | "code" | "textAlign-left" | "textAlign-center" | "textAlign-right" | "textAlign-justify" | "superscript" | "subscript"
 
 export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, icon: React.ReactElement<React.SVGProps<SVGSVGElement>> }) => {
 
@@ -21,7 +21,13 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
                 isItalic: editor.isActive('italic'),
                 isUnderline: editor.isActive('underline'),
                 isStrike: editor.isActive('strike'),
-                isCode: editor.isActive('code')
+                isCode: editor.isActive('code'),
+                isTextAlignLeft: editor.isActive({ textAlign: 'left' }),
+                isTextAlignCenter: editor.isActive({ textAlign: 'center' }),
+                isTextAlignRight: editor.isActive({ textAlign: 'right' }),
+                isTextAlignJustify: editor.isActive({ textAlign: 'justify' }),
+                isSuperscript: editor.isActive('superscript'),
+                isSubscript: editor.isActive('subscript')
             }
         }
     })
@@ -41,6 +47,18 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
             return editor.chain().focus().toggleStrike().run()
         } else if (button === 'code') {
             return editor.chain().focus().toggleCode().run()
+        } else if (button === 'textAlign-left') {
+            return editor.chain().focus().setTextAlign('left').run()
+        } else if (button === 'textAlign-center') {
+            return editor.chain().focus().setTextAlign('center').run()
+        } else if (button === 'textAlign-right') {
+            return editor.chain().focus().setTextAlign('right').run()
+        } else if (button === 'textAlign-justify') {
+            return editor.chain().focus().setTextAlign('justify').run()
+        } else if (button === 'superscript') {
+            return editor.chain().focus().toggleSuperscript().run()
+        } else if (button === 'subscript') {
+            return editor.chain().focus().toggleSubscript().run()
         }
     }
     
@@ -59,6 +77,18 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
             return ` ${editorState.isStrike ? 'text-violet-500' : ''}`
         } else if (button === 'code') {
             return ` ${editorState.isCode ? 'text-violet-500' : ''}`
+        } else if (button === 'textAlign-left') {
+            return ` ${editorState.isTextAlignLeft ? 'text-violet-500' : ''}`
+        } else if (button === 'textAlign-center') {
+            return ` ${editorState.isTextAlignCenter ? 'text-violet-500' : ''}`
+        } else if (button === 'textAlign-right') {
+            return ` ${editorState.isTextAlignRight ? 'text-violet-500' : ''}`
+        } else if (button === 'textAlign-justify') {
+            return ` ${editorState.isTextAlignJustify ? 'text-violet-500' : ''}`
+        } else if (button === 'superscript') {
+            return ` ${editorState.isSuperscript ? 'text-violet-500' : ''}`
+        } else if (button === 'subscript') {
+            return ` ${editorState.isSubscript ? 'text-violet-500' : ''}`
         }
         
     }
@@ -74,6 +104,18 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
             return ` ${editorState.isStrike ? 'bg-neutral-700' : 'text-neutral-300'}`
         } else if (button === 'code') {
             return ` ${editorState.isCode ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'textAlign-left') {
+            return ` ${editorState.isTextAlignLeft ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'textAlign-center') {
+            return ` ${editorState.isTextAlignCenter ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'textAlign-right') {
+            return ` ${editorState.isTextAlignRight ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'textAlign-justify') {
+            return ` ${editorState.isTextAlignJustify ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'superscript') {
+            return ` ${editorState.isSuperscript ? 'bg-neutral-700' : 'text-neutral-300'}`
+        } else if (button === 'subscript') {
+            return ` ${editorState.isSubscript ? 'bg-neutral-700' : 'text-neutral-300'}`
         }
     }
 
@@ -81,7 +123,7 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
         <button onClick={() => {
             setOnClick(editor, button)
         }} 
-        className={` hover:bg-neutral-600 hover:text-white p-1.5 rounded-xl ${setTailwindcssForButton(button)}`}>
+        className={`hover:bg-neutral-600 hover:text-white hover:cursor-pointer p-1.5 rounded-xl ${setTailwindcssForButton(button)}`}>
             {iconWithClass}
         </button>
     </div>

@@ -56,7 +56,7 @@ const Tiptap = () => {
 
     editorProps: {
       attributes: {
-        class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none text-white font-sans',
+        class: 'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none text-white font-sans py-12',
         
         // class: 'prose prose-sm sm:prose-base lg:prose-headings:h2 xl:prose-headings:h3 m-5 focus:outline-none',
       },
