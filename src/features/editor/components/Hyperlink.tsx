@@ -1,13 +1,29 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { AddHyperlink } from "./AddHyperlink";
+import { useCurrentEditor } from "@tiptap/react";
 
 export const Hyperlink = () => {
     const [open, setOpen] = useState(false);
+    const [previousLink, setPreviousLink] = useState<string | null>(null) 
+
+    const { editor } = useCurrentEditor()
+    
+    if (!editor) {
+        return null
+    }
+
+    const getLink = useCallback(() => {
+        const previousUrl = editor.getAttributes('link').href
+        setPreviousLink(previousUrl)
+        console.log(`previousUrl is ${previousUrl}`);
+
+    }, [editor])
 
     return <div className="relative">
         <div>
             <button onClick={() => {
                 setOpen(open => !open)
+                getLink()
             }}
             className={`hover:bg-neutral-600 hover:text-white hover:cursor-pointer p-1.5 rounded-xl ${open ? 'bg-neutral-700' : 'text-neutral-300'}`}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={`size-4 ${open ? 'text-violet-500' : ''}`}>
@@ -15,6 +31,6 @@ export const Hyperlink = () => {
                 </svg>
             </button>
         </div>
-        {open && <AddHyperlink></AddHyperlink>}
+        {open && <AddHyperlink previousLink={previousLink}></AddHyperlink>}
     </div>
 }

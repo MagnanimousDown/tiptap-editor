@@ -24,7 +24,48 @@ const Tiptap = () => {
         heading: false,
       }),
       Link.configure({
-        openOnClick: false
+        openOnClick: false,
+        defaultProtocol: 'https',
+        protocols: ['http', 'https'],
+        isAllowedUri: (url, ctx) => {
+          try {
+            // construct URL
+            const parsedUrl = url.includes(':') ? new URL(url) : new URL(`${ctx.defaultProtocol}://${url}`)
+
+            // use default validation
+            if (!ctx.defaultValidate(parsedUrl.href)) {
+              return false
+            }
+
+            // disallowed protocols
+            const disallowedProtocols = ['ftp', 'file', 'mailto']
+            const protocol = parsedUrl.protocol.replace(':', '')
+
+            if (disallowedProtocols.includes(protocol)) {
+              return false
+            }
+
+            // only allow protocols specified in ctx.protocols
+            const allowedProtocols = ctx.protocols.map(p => (typeof p === 'string' ? p : p.scheme))
+
+            if (!allowedProtocols.includes(protocol)) {
+              return false
+            }
+
+            // disallowed domains
+            const disallowedDomains = ['example-phishing.com', 'malicious-site.net']
+            const domain = parsedUrl.hostname
+
+            if (disallowedDomains.includes(domain)) {
+              return false
+            }
+
+            // all checks have passed
+            return true
+          } catch (error) {
+            return false
+          }
+        },
       }),
       Superscript,
       Subscript,
@@ -62,7 +103,7 @@ const Tiptap = () => {
       },
     },
 
-    content: '<p>Hello World! There is an issue with task Item (Todo-list)</p>', // initial content
+    content: '<p>Hello World! There is an issue with task Item (Todo-list) I skipped autoLink and shouldAutoLink</p>', // initial content
   })
 
   // Memoize the provider value to avoid unnecessary re-renders
