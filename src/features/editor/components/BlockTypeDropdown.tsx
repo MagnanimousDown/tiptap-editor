@@ -62,7 +62,7 @@ export const BlockTypeDropdown = () => {
         </div>
 
         {open && (
-            <div className="absolute top-full mt-6 py-1 bg-neutral-900 rounded-2xl w-38 border-0 ">
+            <div className="absolute top-full mt-2 py-1 bg-neutral-900 rounded-2xl w-38 border-0 ">
                 <div className="pt-3 pl-4 font-sans font-medium text-xs text-gray-200">
                     Turn Into
                 </div>
