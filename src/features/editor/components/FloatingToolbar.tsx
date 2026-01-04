@@ -6,7 +6,7 @@ import { ToolbarButton } from "./ToolbarButton"
 import { TextColor } from "./TextColor"
 export const FloatingToolbar = () => {
 
-    return <div className="py-1 px-1 bg-[rgba(14, 14, 17, 1)] text-neutral-300 rounded-2xl flex items-center border border-white/5 shadow-[0px_16px_48px_0px_rgba(0,0,0,0.5),0px_12px_24px_0px_rgba(0,0,0,0.24),0px_6px_8px_0px_rgba(0,0,0,0.22),0px_2px_3px_0px_rgba(0,0,0,0.12)]
+    return <div className="py-1 px-1 bg-[rgba(14,14,17,1)] text-neutral-300 rounded-2xl flex items-center border border-white/5 shadow-[0px_16px_48px_0px_rgba(0,0,0,0.5),0px_12px_24px_0px_rgba(0,0,0,0.24),0px_6px_8px_0px_rgba(0,0,0,0.22),0px_2px_3px_0px_rgba(0,0,0,0.12)]
 ">
         <div>
             <BlockTypeDropdown></BlockTypeDropdown>

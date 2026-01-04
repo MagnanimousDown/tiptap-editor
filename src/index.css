@@ -49,3 +49,42 @@ html {
   --font-sans: "Inter", sans-serif;
 } */
 
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(14, 14, 17, 1)
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7e7e7e;
+}
+
+::-webkit-scrollbar-button {
+  height: 6px;
+  background: rgba(14, 14, 17, 1);
+}
+
+::-webkit-scrollbar-button:hover {
+  background: #7e7e7e;
+}
+
+.prose ::selection {
+  background: rgba(122,82,255,0.2); /* violet-ish */
+  color: white;
+}
+
+.prose ol > li::marker {
+  color: white;
+}
+
+.editor-content blockquote {
+  color: white;
+}

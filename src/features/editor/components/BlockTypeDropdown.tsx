@@ -49,12 +49,12 @@ export const BlockTypeDropdown = () => {
     }
 
     return <div className="flex items-center relative ">
-        <div className="hover:bg-neutral-700 rounded-2xl">
+        <div className={`hover:bg-neutral-700 rounded-2xl ${open ? 'bg-neutral-800' : 'text-neutral-300'}`}>
             <button onClick={() => {
                 setOpen(open => !open)
             }}
-            className="flex items-center ">
-                <span className="mx-1">{getCurrentBlockLabel({editorState})}</span>
+            className={`flex items-center p-1`}>
+                <span className="mx-1 font-medium text-sm">{getCurrentBlockLabel({editorState})}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-2 mx-1  ">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>

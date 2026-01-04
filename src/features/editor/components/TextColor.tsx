@@ -26,10 +26,6 @@ export const TextColor = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                 </svg>
             </button>
-            <div>
-                highlight value {highlightColor}
-                color value {textColor}
-            </div>
         </div>
         {open && <TextColorMenu addTextColor={addTextColor} addHighlightColor={addHighlightColor}></TextColorMenu>}
     </div>
