@@ -15,6 +15,8 @@ export const TextColor = () => {
         setHighlightColor(color)
     }
 
+    const onMenuItemSelect = () => setOpen(false);
+
     return <div className="relative">
         <div>
             <button onClick={() => {
@@ -27,6 +29,6 @@ export const TextColor = () => {
                 </svg>
             </button>
         </div>
-        {open && <TextColorMenu addTextColor={addTextColor} addHighlightColor={addHighlightColor}></TextColorMenu>}
+        {open && <TextColorMenu addTextColor={addTextColor} addHighlightColor={addHighlightColor} onMenuItemSelect={onMenuItemSelect}></TextColorMenu>}
     </div>
 }

@@ -5,7 +5,7 @@ import { BsArrowReturnLeft } from "react-icons/bs";
 import { useCurrentEditor, useEditorState } from "@tiptap/react";
 import { useCallback, useState } from "react";
 
-export const AddHyperlink = ({ previousLink }: { previousLink: string | null }) => {
+export const AddHyperlink = ({ previousLink, onSetLink }: { previousLink: string | null, onSetLink: () => void }) => {
     const [link, setEnteredLink] = useState<string>(previousLink || '');
 
     const { editor } = useCurrentEditor()
@@ -64,7 +64,11 @@ export const AddHyperlink = ({ previousLink }: { previousLink: string | null }) 
         </div>
         <div className="flex items-center">
             <button className="ml-4 hover:bg-neutral-800 hover:text-white hover:cursor-pointer p-1.5 rounded-xl disabled:hover:cursor-not-allowed" 
-                onClick={setLink}
+                onClick={() => {
+                        setLink()
+                        onSetLink()
+                    }
+                }
                 disabled={!link}
             >
                 <BsArrowReturnLeft />

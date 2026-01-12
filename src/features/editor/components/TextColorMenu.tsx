@@ -5,9 +5,10 @@ import { HighlightIcon } from "../ui/HighlightIcon"
 type Props = {
     addTextColor: (color: string) => void
     addHighlightColor: (color: string) => void
+    onMenuItemSelect: () => void
 }
 
-export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
+export const TextColorMenu = ({ addTextColor, addHighlightColor, onMenuItemSelect}: Props) => {
 
     const { editor } = useCurrentEditor()
 
@@ -54,6 +55,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                     editor.chain().focus().unsetColor().run()
                     addTextColor('#fff')
+                    onMenuItemSelect()
                     }
                 } 
                 data-testid="unsetColor" 
@@ -63,6 +65,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#9c9c9c').run()
                         addTextColor('#9c9c9c')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setGray" 
@@ -73,6 +76,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#b9856e').run()
                         addTextColor('#b9856e')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setBrown" 
@@ -82,6 +86,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#c77d48').run()
                         addTextColor('#c77d48')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setOrange" 
@@ -91,6 +96,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#ca994e').run()
                         addTextColor('#ca994e')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setYellow" 
@@ -102,6 +108,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#519e71').run()
                         addTextColor('#519e71')
+                        onMenuItemSelect()
                     }
                 }
                 data-testid="setGreen" 
@@ -111,6 +118,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#3699d3').run()
                         addTextColor('#3699d3')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setBlue" 
@@ -120,6 +128,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#9e69d3').run()
                         addTextColor('#9e69d3')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setPurple" 
@@ -129,6 +138,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#d15796').run()
                         addTextColor('#d15796')
+                        onMenuItemSelect()
                     }
                 } 
                 data-testid="setPink" 
@@ -138,6 +148,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().setColor('#df5553').run()
                         addTextColor('#df5553')
+                        onMenuItemSelect()
                     }
                 }
                 data-testid="setRed" 
@@ -155,6 +166,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().unsetHighlight().run()
                         addHighlightColor('#000')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightDefault ? 'bg-neutral-800' : ''}`}>
@@ -163,6 +175,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#2F2F2F' }).run()
                         addHighlightColor('#2F2F2F')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightGray ? 'bg-neutral-800' : ''}`}>
@@ -171,6 +184,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#4A3228' }).run()
                         addHighlightColor('#4A3228')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightBrown ? 'bg-neutral-800' : ''}`}>
@@ -179,6 +193,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#5C3B23' }).run()
                         addHighlightColor('#5C3B23')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightOrange ? 'bg-neutral-800' : ''}`}>
@@ -187,6 +202,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#6b6524' }).run()
                         addHighlightColor('#6b6524')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightYellow ? 'bg-neutral-800' : ''}`}>
@@ -197,6 +213,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#509568' }).run()
                         addHighlightColor('#509568')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightGreen ? 'bg-neutral-800' : ''}`}>
@@ -205,6 +222,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#6e92aa' }).run()
                         addHighlightColor('#6e92aa')
+                        onMenuItemSelect()
                     }
                 } 
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightBlue ? 'bg-neutral-800' : ''}`}>
@@ -213,6 +231,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#583e74' }).run()
                         addHighlightColor('#583e74')
+                        onMenuItemSelect()
                     }
                 }
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightPurple ? 'bg-neutral-800' : ''}`}>
@@ -221,6 +240,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#4E2C3C' }).run()
                         addHighlightColor('#4E2C3C')
+                        onMenuItemSelect()
                     }
                 }
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightPink ? 'bg-neutral-800' : ''}`}>
@@ -229,6 +249,7 @@ export const TextColorMenu = ({ addTextColor, addHighlightColor}: Props) => {
                 <button onClick={() => {
                         editor.chain().focus().toggleHighlight({ color: '#743e42' }).run()
                         addHighlightColor('#743e42')
+                        onMenuItemSelect()
                     }
                 }
                 className={`hover:bg-neutral-800 hover:cursor-pointer p-1 rounded-xl ${editorState.isHighlightRed ? 'bg-neutral-800' : ''}`}>

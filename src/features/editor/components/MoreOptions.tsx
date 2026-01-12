@@ -4,6 +4,10 @@ import { TextAlignmentMenu } from "./TextAlignmentMenu";
 export const MoreOptions = () => {
     const [open, setOpen] = useState(false);
 
+    const onMenuItemSelect = () => {
+        setOpen(false);
+    }
+
     return <div className="relative">
             <div>
                 <button onClick={() => {
@@ -16,6 +20,6 @@ export const MoreOptions = () => {
                     </svg>
                 </button>
             </div>
-            {open && <TextAlignmentMenu></TextAlignmentMenu>}
+            {open && <TextAlignmentMenu onMenuItemSelect={onMenuItemSelect}></TextAlignmentMenu>}
     </div>
 }

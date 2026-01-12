@@ -3,7 +3,13 @@ import React from "react";
 
 type ToolbarButtonType = "bold" | "italic" | "underline" | "strike" | "code" | "textAlign-left" | "textAlign-center" | "textAlign-right" | "textAlign-justify" | "superscript" | "subscript"
 
-export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, icon: React.ReactElement<React.SVGProps<SVGSVGElement>> }) => {
+type ToolbarButtonProps = {
+    button: ToolbarButtonType;
+    icon: React.ReactElement<React.SVGProps<SVGSVGElement>>,
+    onMenuItemSelect?: () => void
+};
+
+export const ToolbarButton = ({ button, icon, onMenuItemSelect }: ToolbarButtonProps) => {
 
     const { editor } = useCurrentEditor()
 
@@ -122,6 +128,7 @@ export const ToolbarButton = ({ button, icon }: { button: ToolbarButtonType, ico
     return <div className="">
         <button onClick={() => {
             setOnClick(editor, button)
+            onMenuItemSelect?.()
         }} 
         className={`hover:bg-neutral-600 hover:text-white hover:cursor-pointer p-1.5 rounded-xl ${setTailwindcssForButton(button)}`}>
             {iconWithClass}

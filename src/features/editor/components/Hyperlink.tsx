@@ -19,6 +19,8 @@ export const Hyperlink = () => {
 
     }, [editor])
 
+    const onSetLink = () => setOpen(false);
+
     return <div className="relative">
         <div>
             <button onClick={() => {
@@ -31,6 +33,6 @@ export const Hyperlink = () => {
                 </svg>
             </button>
         </div>
-        {open && <AddHyperlink previousLink={previousLink}></AddHyperlink>}
+        {open && <AddHyperlink previousLink={previousLink} onSetLink={onSetLink}></AddHyperlink>}
     </div>
 }
